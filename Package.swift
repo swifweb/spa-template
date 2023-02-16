@@ -11,10 +11,10 @@ let package = Package(
         .executable(name: "App", targets: ["App"])
     ],
     dependencies: [
-        .package(url: "https://github.com/swifweb/web", from: "1.0.0-beta.1.19.0")
+        .package(url: "https://github.com/swifweb/web", from: "1.0.0-beta.2.0.0")
     ],
     targets: [
-        .target(name: "App", dependencies: [
+        .executableTarget(name: "App", dependencies: [
             .product(name: "Web", package: "web")
         ], resources: [
             .copy("images/favicon.ico"),

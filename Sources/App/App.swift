@@ -1,6 +1,7 @@
 import Web
 
-public class App: WebApp {
+@main
+class App: WebApp {
     @State var color = Color.cyan
     
     enum Theme {
@@ -9,7 +10,7 @@ public class App: WebApp {
     
     @State var theme: Theme = .happy
     
-    @AppBuilder public override var body: AppBuilder.Content {
+    @AppBuilder override var app: Configuration {
         Lifecycle.didFinishLaunching {
             print("Lifecycle.didFinishLaunching")
         }.willTerminate {
@@ -24,9 +25,9 @@ public class App: WebApp {
             print("Lifecycle.willEnterForeground")
         }
         Routes {
-            Page { WelcomeViewController() }
-            Page("hello") { HelloViewController() }
-            Page("**") { NotFoundViewController() }
+            Page { WelcomePage() }
+            Page("hello") { HelloPage() }
+            Page("**") { NotFoundPage() }
         }
         HappyStyle().id(.happyStyle).disabled($theme.map { $0 != .happy })
         SadStyle().id("sadStyle").disabled($theme.map { $0 != .sad })
