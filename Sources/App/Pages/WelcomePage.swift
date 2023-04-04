@@ -1,6 +1,6 @@
 import Web
 
-class WelcomePage: ViewController {
+class WelcomePage: PageController {
     @State var clickCount = 0
     @State var clicked = false
     
